@@ -1,0 +1,149 @@
+:root {
+  --bg: #080b14;
+  --panel: #111827;
+  --panel-border: #243041;
+  --text: #e5ecf6;
+  --muted: #93a0b4;
+  --ok: #12c76d;
+  --danger: #f04438;
+  --accent: #7c8cff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: radial-gradient(circle at top, #151d2e 0%, var(--bg) 55%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/*
+  Modo overlay:
+  Painel fixo, compacto, sempre visível na janela do navegador.
+*/
+.overlay {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: min(360px, calc(100vw - 2rem));
+  background: var(--panel);
+  border: 2px solid var(--panel-border);
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.45);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  z-index: 9999;
+}
+
+.overlay.is-low {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 2px rgba(240, 68, 56, 0.28), 0 18px 40px rgba(240, 68, 56, 0.28);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.01); }
+  100% { transform: scale(1); }
+}
+
+.overlay__header h1 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.overlay__header p {
+  margin: 0.25rem 0 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.form-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.field span {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.field input {
+  width: 100%;
+  background: #0a1222;
+  border: 1px solid #22314b;
+  color: var(--text);
+  border-radius: 8px;
+  padding: 0.6rem 0.7rem;
+  font-size: 1rem;
+}
+
+.field input:focus {
+  outline: 2px solid var(--accent);
+  border-color: var(--accent);
+}
+
+.status {
+  margin-top: 1rem;
+  background: #0b1425;
+  border: 1px solid #1d3556;
+  border-radius: 10px;
+  padding: 0.75rem;
+}
+
+.status__label {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.status__text {
+  margin: 0.3rem 0 0;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--ok);
+}
+
+.status__text.is-low {
+  color: var(--danger);
+}
+
+.status__meta {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.actions {
+  margin-top: 0.9rem;
+}
+
+button {
+  width: 100%;
+  border: 1px solid #274979;
+  background: #12213a;
+  color: var(--text);
+  border-radius: 8px;
+  padding: 0.6rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+.note {
+  margin-top: 0.8rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}

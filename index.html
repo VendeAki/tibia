@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tibia Mana Alert</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!--
+      Tibia Mana Alert
+      Painel visual manual para monitoramento de mana.
+      Não possui integração com o jogo, teclado, mouse ou memória de processo.
+    -->
+    <main class="overlay" id="manaPanel" aria-live="polite">
+      <header class="overlay__header">
+        <h1>Tibia Mana Alert</h1>
+        <p>Monitor manual de mana (sem automação)</p>
+      </header>
+
+      <section class="form-grid" aria-label="Configuração de mana">
+        <label class="field">
+          <span>Mana atual</span>
+          <input id="currentMana" type="number" min="0" step="1" value="0" />
+        </label>
+
+        <label class="field">
+          <span>Mana máxima</span>
+          <input id="maxMana" type="number" min="1" step="1" value="100" />
+        </label>
+
+        <label class="field">
+          <span>Alerta mínimo (%)</span>
+          <input id="alertPercent" type="number" min="1" max="99" step="1" value="30" />
+        </label>
+      </section>
+
+      <section class="status" id="statusBox">
+        <p class="status__label">Status</p>
+        <p class="status__text" id="statusText">Mana OK</p>
+        <p class="status__meta" id="statusMeta">0% de mana atual</p>
+      </section>
+
+      <section class="actions">
+        <button id="toggleBeep" type="button" aria-pressed="false">🔈 Beep: Desligado</button>
+      </section>
+
+      <footer class="note">
+        <small>
+          Uso manual: digite os valores manualmente. Este app não lê dados do jogo e não executa ações automáticas.
+        </small>
+      </footer>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
